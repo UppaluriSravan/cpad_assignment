@@ -56,6 +56,14 @@ class _LoginPageState extends State<LoginPage> {
 
   // Login with username and password using ParseUser
   Future<void> login() async {
+    // Check for empty fields before attempting login
+    if (usernameController.text.trim().isEmpty ||
+        passwordController.text.trim().isEmpty) {
+      setState(() {
+        errorMessage = 'Please enter both username and password.';
+      });
+      return;
+    }
     setState(() {
       isLoading = true;
       errorMessage = '';
@@ -82,6 +90,15 @@ class _LoginPageState extends State<LoginPage> {
 
   // Sign up with username, password, and email using ParseUser
   Future<void> signup() async {
+    // Check for empty fields before attempting signup
+    if (usernameController.text.trim().isEmpty ||
+        passwordController.text.trim().isEmpty ||
+        emailController.text.trim().isEmpty) {
+      setState(() {
+        errorMessage = 'Please enter username, email, and password.';
+      });
+      return;
+    }
     setState(() {
       isLoading = true;
       errorMessage = '';
