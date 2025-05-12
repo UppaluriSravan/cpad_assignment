@@ -276,12 +276,15 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ],
                     ),
-                    // Password reset button
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: isLoading ? null : resetPassword,
-                        child: const Text('Forgot Password?'),
+                    // Password reset button with padding
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: isLoading ? null : resetPassword,
+                          child: const Text('Forgot Password?'),
+                        ),
                       ),
                     ),
                   ],
